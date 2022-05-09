@@ -17,15 +17,16 @@ operator = {
     '>=': '>=',
     'abs': 'abs',
     'iferror': 'iferror',
+    'int': 'int',
 
 }
 
 
 def post_to_infix(expression: tuple) -> str:
     prec = {'+': 0, '-': 0, '*': 1, "/": 1, '%': 1, '^': 2, 'max': 2, 'min': 2,
-            'ave': 2, '<=': 0, '<': 0, '>=': 0, '>': 0, '=': 0, 'abs': 2, 'iferror': 0}
-    spreadsheet_functions = ['max', 'min', 'average', 'abs', 'iferror']
-    takes_only_one_argument = ['abs']
+            'ave': 2, '<=': 0, '<': 0, '>=': 0, '>': 0, '=': 0, 'abs': 2, 'iferror': 0, 'int': 2}
+    spreadsheet_functions = ['max', 'min', 'average', 'abs', 'iferror', 'int']
+    takes_only_one_argument = ['abs', 'int']
     missing_operand_filler = {'+': ('0', '0'), '-': ('0', '0'), '*': ('1', '1'), '/': ('1', '1'), '%': ('1', '1'),
                               '^': ('1', '1'), 'min': ('0', '0'), 'max': ('0', '0'), 'iferror': ('0', '0')}
 
