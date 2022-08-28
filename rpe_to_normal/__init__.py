@@ -18,6 +18,8 @@ operator = {
     'abs': 'abs',
     'iferror': 'iferror',
     'round': 'round',
+    'round up': 'round up',
+    'round down': 'round down',
     'int': 'int',
 
 }
@@ -25,12 +27,13 @@ operator = {
 
 def post_to_infix(expression: tuple) -> str:
     prec = {'+': 0, '-': 0, '*': 2, "/": 2, '%': 2, '^': 3, 'max': 3, 'min': 3,
-            'ave': 3, '<=': 1, '<': 1, '>=': 1, '>': 1, '=': 1, 'abs': 3, 'iferror': 0, 'int': 3, 'round': 3}
-    spreadsheet_functions = ['max', 'min', 'average', 'abs', 'iferror', 'int', 'round']
+            'ave': 3, '<=': 1, '<': 1, '>=': 1, '>': 1, '=': 1, 'abs': 3, 'iferror': 0, 'int': 3, 'round': 3,
+            'round up': 3, 'round down': 3}
+    spreadsheet_functions = ['max', 'min', 'average', 'abs', 'iferror', 'int', 'round', 'round up', 'round down']
     takes_only_one_argument = ['abs', 'int']
     missing_operand_filler = {'+': ('0', '0'), '-': ('0', '0'), '*': ('1', '1'), '/': ('1', '1'), '%': ('1', '1'),
                               '^': ('1', '1'), 'min': ('0', '0'), 'max': ('0', '0'), 'iferror': ('0', '0'),
-                              'round': ('0', '0')}
+                              'round': ('0', '0'), 'round up': ('0', '0'), 'round down': ('0', '0')}
 
     stack = []
     for n, x in enumerate(expression):
