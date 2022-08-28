@@ -18,8 +18,8 @@ operator = {
     'abs': 'abs',
     'iferror': 'iferror',
     'round': 'round',
-    'round up': 'round up',
-    'round down': 'round down',
+    'round up': 'roundup',
+    'round down': 'rounddown',
     'int': 'int',
 
 }
